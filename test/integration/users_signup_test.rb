@@ -15,7 +15,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     #  assert_equal before_count, after_count
     assert_template 'users/new'
     #assert_select 'div#<CSS id for error explanation>'
-    #assert_select 'div.<CSS class for field with error>'
+    # assert_select 'div.<CSS class for field with error>'
   end
 
   test "valid signup information" do
