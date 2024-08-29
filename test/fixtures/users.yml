@@ -1,1 +1,6 @@
-#empty
+# test/fixtures/users.yml
+michael:
+  name: Michael Hartl
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
+
