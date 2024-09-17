@@ -11,6 +11,12 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+  config.action_controller.perform_caching = false
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :test
+  host = 'http://127.0.0.1:3000/'
+  config.action_mailer.default_url_options = {host: host}
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -32,9 +38,22 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options ={host: host}
   config.action_mailer.perform_caching = false
+  # config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :port => '587',
+    :authentication => :plain,
+    :user_name => 'gowsekan@zionstar.in',
+    :password => 'atkl euix rlpb fxcc',
+    :domain => 'localhost:3000',
+    :enable_starttls_auto => true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
